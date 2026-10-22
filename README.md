@@ -1,58 +1,64 @@
-# Gestion-Gastos
+# Gestión de Gastos
 
-Proyecto Maven de gestión de gastos.
+## Descripción del proyecto
+
+**Gestión de Gastos** es una aplicación desarrollada en Java que tiene como objetivo facilitar la gestión y el control de los gastos. El proyecto está organizado como un proyecto Maven y permite trabajar de forma colaborativa en el desarrollo y mantenimiento de la herramienta.
+
+## Miembros del grupo de trabajo
+
+| Nombre | Mail | Subgrupo de Prácticas |
+|:---|:---|:---|
+| Daniel Soto Pellicer | d.sotopellicer@um.es | 2.3 |
+| Pablo García Zapata | correo2@um.es | X.Y |
+| Daniel Pascual Guardiola | correo3@um.es | 2.3 |
 
 ## Requisitos
 
-- JDK 21
-- Eclipse con soporte Maven (m2e, incluido en las versiones habituales)
-- Git
+- **JDK 21**
+- **Eclipse** con soporte para Maven (m2e, incluido en las versiones habituales).
+- **Git**
 
-Si tienes otro JDK, instala el 21 y regístralo en
-**Window → Preferences → Java → Installed JREs**.
+Si tienes otra versión del JDK, instala el JDK 21 y regístralo en:
+
+`Window → Preferences → Java → Installed JREs`
 
 ## Cómo abrir el proyecto en Eclipse
 
-El repositorio no incluye los archivos de Eclipse (`.project`, `.classpath`,
-`.settings/`), ya que dependen de la configuración de cada máquina. Eclipse los
-genera automáticamente a partir del `pom.xml`. Hay dos opciones:
+El repositorio no incluye los archivos de configuración de Eclipse (`.project`, `.classpath`, `.settings/`), ya que dependen de la configuración de cada máquina. Eclipse puede generarlos automáticamente a partir del archivo `pom.xml`.
+
+Hay dos opciones para importar el proyecto.
 
 ### Opción A: todo desde Eclipse
 
-1. **File → Import → Git → Projects from Git (with smart import)**
+1. Ve a **File → Import → Git → Projects from Git (with smart import)**.
 2. Selecciona **Clone URI** y pega la URL del repositorio.
-3. Sigue el asistente hasta el final. Eclipse detectará el `pom.xml` e
-   importará el proyecto como proyecto Maven.
+3. Sigue los pasos del asistente hasta finalizar. Eclipse detectará el archivo `pom.xml` e importará el proyecto como un proyecto Maven.
 
-> Usa la variante **with smart import**. La opción "Projects from Git" a secas
-> no funcionará, porque busca un `.project` que no está en el repositorio.
+> **Importante:** utiliza la opción **Projects from Git (with smart import)**. La opción «Projects from Git» sin *smart import* puede no funcionar porque busca un archivo `.project` que no está incluido en el repositorio.
 
-### Opción B: clonar a mano e importar
+### Opción B: clonar e importar manualmente
 
 1. Clona el repositorio fuera de la carpeta del workspace de Eclipse:
 
-```
-   https://github.com/danisoto11/Gestion-Gastos.git
-```
+   ```bash
+   git clone https://github.com/danisoto11/Gestion-Gastos.git
+   ```
 
-2. En Eclipse: **File → Import → Maven → Existing Maven Projects**
+2. En Eclipse, ve a **File → Import → Maven → Existing Maven Projects**.
 3. Pulsa **Browse**, selecciona la carpeta clonada y pulsa **Finish**.
 
 ## Estructura del proyecto
 
-```
-docs/                Documentación
-src/main/java        Código fuente
-src/main/resources   Recursos
-src/test/java        Tests
-src/test/resources   Recursos para los tests
-pom.xml              Configuración de Maven
+```text
+docs/                 Documentación
+src/main/java/        Código fuente
+src/main/resources/   Recursos de la aplicación
+src/test/java/        Tests
+src/test/resources/   Recursos para los tests
+pom.xml               Configuración de Maven
 ```
 
 ## Problemas habituales
 
-- **Errores de JRE / compiler compliance:** comprueba que tienes el JDK 21
-  registrado en Eclipse y haz clic derecho en el proyecto →
-  **Maven → Update Project...** (`Alt+F5`).
-- **Falta codificación (encoding):** clic derecho en el proyecto →
-  Properties → Resource → Text file encoding → UTF-8.
+- **Errores de JRE o *compiler compliance*:** comprueba que tienes el JDK 21 registrado en Eclipse y haz clic derecho sobre el proyecto → **Maven → Update Project...** (`Alt + F5`).
+- **Problemas de codificación (*encoding*):** haz clic derecho sobre el proyecto → **Properties → Resource → Text file encoding** y selecciona **UTF-8**.
