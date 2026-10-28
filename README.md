@@ -9,8 +9,8 @@
 | Nombre | Mail | Subgrupo de Prácticas |
 |:---|:---|:---|
 | Daniel Soto Pellicer | d.sotopellicer@um.es | 2.3 |
-| Pablo García Zapata | correo2@um.es | X.Y |
-| Daniel Pascual Guardiola | correo3@um.es | 2.3 |
+| Pablo García Zapata | p.garciazapata@um.es | 2.2 |
+| Daniel Pascual Guardiola | d.pascualguardiola | 2.3 |
 
 ## Requisitos
 
