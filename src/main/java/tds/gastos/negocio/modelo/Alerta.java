@@ -1,19 +1,29 @@
 package tds.gastos.negocio.modelo;
 
-import java.util.List;
-
 public class Alerta {
 	private double limite;
 	//optional de la categoria
 	
-	private List<Notificacion> notificaciones; //podriamos porbar con un Conjunto en lugar de una lista
 	private EstrategiaPeriodo periodo;
+	private Categoria categoria;
 	
-	public Alerta(double limite) {
+	public Alerta(double limite, EstrategiaPeriodo periodo) {
 		if(limite <= 0) throw new IllegalArgumentException("El limite de la alerta debe ser mayor que 0");
 		this.limite = limite;
+		this.periodo = periodo;
+	}
+	
+	public Alerta(double limite, EstrategiaPeriodo periodo, Categoria categoria) {
+		this(limite, periodo);
+		if(categoria == null) throw new IllegalArgumentException("La categoría debe existir");
+		this.categoria = categoria;
 	}
 
+	
+	//Negocio
+	
+	
+	//Getters and Setters
 	public double getLimite() {
 		return limite;
 	}
@@ -22,12 +32,20 @@ public class Alerta {
 		this.limite = limite;
 	}
 
-	public List<Notificacion> getNotificaciones() {
-		return notificaciones;
+	public EstrategiaPeriodo getPeriodo() {
+		return periodo;
 	}
 
-	public void setNotificaciones(List<Notificacion> notificaciones) {
-		this.notificaciones = notificaciones;
+	public void setPeriodo(EstrategiaPeriodo periodo) {
+		this.periodo = periodo;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 	
 	

@@ -6,23 +6,38 @@ public abstract class Gasto {
 	private double cantidad;
 	private LocalDate fecha;
 	private String descripcion;
+	// private int id; -> mas adelante, para persistencia 
 	
 	private Categoria categoria;
 	
 	public Gasto(double cantidad, LocalDate fecha, String descripcion, Categoria categoria) {
 		
-		if(cantidad<=0) throw new IllegalArgumentException("Un gasto no puede ser menor que 0");
-		LocalDate fechaActual = LocalDate.now();
-		if(fecha.isAfter(fechaActual)) throw new IllegalArgumentException("La fecha del gasto (" + fecha +") es posterior a la actual (" + fechaActual +")");
-		if(categoria == null) throw new IllegalArgumentException("El gasto debe pertenecer a una categoría");
-		
+		validarArgumentos(cantidad, fecha, descripcion, categoria);
 		
 		this.cantidad = cantidad;
 		this.fecha = fecha;
-		this.descripcion = descripcion;
 		this.categoria = categoria;
+		this.descripcion = descripcion;
 	}
 
+	private void validarArgumentos(double cantidad, LocalDate fecha, String descripcion, Categoria categoria) {
+		if(cantidad<=0) throw new IllegalArgumentException("El gasto debe ser mayor que 0");
+		if(fecha==null) throw new IllegalArgumentException("La fecha no puede ser nula");
+		// Asumimos que se pueden añadir gastos de fechas futuras (como pagos recurrentes, suscripciones, etc)
+		if(categoria == null) throw new IllegalArgumentException("El gasto debe pertenecer a una categoría");
+		if(descripcion == null) descripcion = "";
+	}
+	
+	public void editarGasto(double cantidad, LocalDate fecha, String descripcion, Categoria categoria) {
+		
+		validarArgumentos(cantidad, fecha, descripcion, categoria);
+		
+		this.cantidad = cantidad;
+		this.fecha = fecha;
+		this.categoria = categoria;
+		this.descripcion = descripcion;
+	}
+	
 	public double getCantidad() {
 		return cantidad;
 	}
